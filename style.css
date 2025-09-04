@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+
+body {
+    background: linear-gradient(120deg, #ff6a00, #ee0979);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+
+.main-box {
+    background: #fff;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+
+.main-box h1 {
+    text-align: center;
+    color: #ee0979;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.tagline {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+
+.form-section {
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #ff6a00;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 106, 0, 0.4);
+}
+
+
+button {
+    display: block;
+    margin: 25px auto;
+    background: linear-gradient(90deg, #ee0979, #ff6a00);
+    color: white;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+.results {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.results h2 {
+    margin-bottom: 20px;
+    color: #ee0979;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.result-card {
+    padding: 25px;
+    border-radius: 14px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.result-card h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+
+.result-card.actual {
+    background: #0072ff;
+}
+.result-card.gst {
+    background: #f7971e;
+}
+.result-card.total {
+    background: #43cea2;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
