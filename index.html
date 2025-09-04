@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GST Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            $("#amount").keyup(function () {
+                let amount = parseFloat($("#amount").val());
+                if (!isNaN(amount)) {
+                    $("#actualAmt").html("₹ " + amount.toFixed(2));
+                } else {
+                    $("#actualAmt").html("--");
+                }
+            });
+
+
+            $("#gstRate").change(function () {
+                let amount = parseFloat($("#amount").val());
+                let gstRate = parseFloat($("#gstRate").val());
+
+                if (!isNaN(amount) && !isNaN(gstRate)) {
+                    let gstAmount = (amount * gstRate) / 100;
+                    $("#gstAmt").html("₹ " + gstAmount.toFixed(2));
+                } else {
+                    $("#gstAmt").html("--");
+                }
+            });
+
+
+            $("#calcBtn").click(function () {
+                let amount = parseFloat($("#amount").val());
+                let gstRate = parseFloat($("#gstRate").val());
+
+                if (!isNaN(amount) && !isNaN(gstRate)) {
+                    let gstAmount = (amount * gstRate) / 100;
+                    let totalAmount = amount + gstAmount;
+                    $("#totalAmt").html("₹ " + totalAmount.toFixed(2));
+                } else {
+                    alert("⚠️ Please enter amount and select GST rate first.");
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="main-box">
+        <h1>🧾 GST Calculator</h1>
+        <p class="tagline">Easily calculate GST for your amount</p>
+
+        <div class="form-section">
+            <label>Enter Amount (₹)</label>
+            <input type="number" id="amount" placeholder="Enter amount">
+        </div>
+
+        <div class="form-section">
+            <label>Select GST Rate (%)</label>
+            <select id="gstRate">
+                <option value="" disabled selected>-- Select Rate --</option>
+                <option value="5">5%</option>
+                <option value="12">12%</option>
+                <option value="18">18%</option>
+                <option value="28">28%</option>
+            </select>
+        </div>
+
+        <button id="calcBtn">⚡ Calculate Total</button>
+
+        <div class="results">
+            <h2>📊 Calculation Results</h2>
+            <div class="result-grid">
+                <div class="result-card actual">
+                    <h3>Actual Amount</h3>
+                    <p id="actualAmt">--</p>
+                </div>
+                <div class="result-card gst">
+                    <h3>GST Amount</h3>
+                    <p id="gstAmt">--</p>
+                </div>
+                <div class="result-card total">
+                    <h3>Total Amount</h3>
+                    <p id="totalAmt">--</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
